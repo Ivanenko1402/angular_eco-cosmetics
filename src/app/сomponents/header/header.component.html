@@ -3,21 +3,21 @@
     <a class="header_mobile-navigation_link" routerLink="/menu">
       <img
         class="header_mobile-navigation_link_img"
-        src="../../../assets/images/menu.svg"
+        src="./assets/images/menu.svg"
         alt="menu"
       >
     </a>
     <a class="header_mobile-navigation_link" routerLink="/">
       <img
         class="header_mobile-navigation_link_img"
-        src="../../../assets/images/logo-phone.svg"
+        src="./assets/images/logo-phone.svg"
         alt="phone_logo"
       >
     </a>
     <a class="header_mobile-navigation_link" routerLink="/cart">
       <img
         class="header_mobile-navigation_link_img"
-        src="../../../assets/images/shop.svg"
+        src="./assets/images/shop.svg"
         alt="shop"
       >
       <div *ngIf="bagList.length > 0" class="header_mobile-navigation_link_count">
@@ -28,7 +28,7 @@
   
   <nav class="desctop-navigation">
     <a class="desctop-navigation_item" routerLink="/">
-      <img src="../../../assets/images/logo-text.svg" alt="">
+      <img src="./assets/images/logo-text.svg" alt="">
     </a>
     <ul class="desctop-navigation_item">
       <li>
@@ -69,7 +69,7 @@
       </li>
     </ul>
     <a class="desctop-navigation_item" routerLink="/cart">
-      <img src="../../../assets/images/shop.svg" alt="">
+      <img src="./assets/images/shop.svg" alt="">
 
       <div *ngIf="bagList.length > 0" class="header_mobile-navigation_link_count">
         {{bagList.length}}
