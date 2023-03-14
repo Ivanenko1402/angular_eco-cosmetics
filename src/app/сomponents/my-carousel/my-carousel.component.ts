@@ -15,15 +15,15 @@ export class MyCarouselComponent {
 
   images: Image[] = [
     {
-      imageSRC: '../../../assets/images/header_img.jpg',
+      imageSRC: './assets/images/header_img.jpg',
       imageAlt: 'first image',
     },
     {
-      imageSRC: '../../../assets/images/header_1.jpg',
+      imageSRC: './assets/images/header_1.jpg',
       imageAlt: 'second image',
     },
     {
-      imageSRC: '../../../assets/images/header_2.jpg',
+      imageSRC: './assets/images/header_2.jpg',
       imageAlt: 'third image',
     },
   ];
