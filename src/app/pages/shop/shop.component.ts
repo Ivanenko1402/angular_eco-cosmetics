@@ -17,6 +17,7 @@ export class ShopComponent {
   isLoading = false;
   inputValue: string = '';
   selectValue: number = 3;
+  correctList: Product[] = [];
   visibleProducts: Product[] = [];
 
   paginFirstItem: number = 1;
@@ -43,8 +44,9 @@ export class ShopComponent {
 
     setTimeout(() => {
       this.productsFromServer = goodsFromServer as Product[];
+      this.correctList = this.productsFromServer;
       this.getNewStartVsEnd();
-      this.visibleProducts = this.productsFromServer.slice(this.start, this.end);
+      this.visibleProducts = this.correctList.slice(this.start, this.end);
       this.isLoading = false;
     }, 2000)
   }
@@ -54,8 +56,8 @@ export class ShopComponent {
     const endIndex = startIndex + this.selectValue;
   
     this.start = startIndex;
-    this.end = endIndex > this.productsFromServer.length ? this.productsFromServer.length : endIndex;
-    this.paginList = this.getPagination(Math.ceil(this.productsFromServer.length / this.selectValue));
+    this.end = endIndex > this.correctList.length ? this.correctList.length : endIndex;
+    this.paginList = this.getPagination(Math.ceil(this.correctList.length / this.selectValue));
     this.currectListOfPagin = this.getPagin();
   }
 
@@ -65,6 +67,7 @@ export class ShopComponent {
     if (target instanceof HTMLInputElement) {
       this.currentPage = 1;
       this.inputValue = target.value.trim();
+      this.correctList = this.productsFromServer.filter(p => (p.name.toLowerCase()).includes(this.inputValue.toLowerCase()));
       this.router.navigate([], {
         relativeTo: this.route,
         queryParams: { query: this.inputValue ? this.inputValue : null },
@@ -79,10 +82,9 @@ export class ShopComponent {
         queryParamsHandling: 'merge'
       });
     }
-    
+
     this.getNewStartVsEnd();
-    this.visibleProducts = this.productsFromServer.filter(p => p.name.toLowerCase().includes(this.inputValue.toLowerCase()));
-    this.visibleProducts = this.productsFromServer.slice(this.start, this.end);
+    this.visibleProducts = this.correctList.slice(this.start, this.end);
   }
 
   getPagination(num: number): number[] {

@@ -49,7 +49,13 @@
       class=""
       [text]="'to agree'"
       [link]="'/step1'"
+      (click)="showMessage($event)"
     ></app-button>
+    <div *ngIf="isShowMessage" class="window">
+      <p class="window_title">
+        this option will be implemented soon =)
+      </p>
+    </div>
   </div>
 </div>
 <div *ngIf="bagItems.length === 0" class="empty">

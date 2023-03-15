@@ -23,7 +23,6 @@ import { AboutCreatorsComponent } from './сomponents/about-creators/about-creat
 import { PowderComponent } from './сomponents/powder/powder.component';
 import { AdvantagesComponent } from './сomponents/advantages/advantages.component';
 import { ContactComponent } from './сomponents/contact/contact.component';
-import { CarouselComponent } from './сomponents/carousel/carousel.component';
 import { MyCarouselComponent } from './сomponents/my-carousel/my-carousel.component';
 import { ProductCartComponent } from './сomponents/product-cart/product-cart.component';
 import { SmallShopComponent } from './сomponents/small-shop/small-shop.component';
@@ -48,7 +47,6 @@ import { ShopCartComponent } from './pages/shop-cart/shop-cart.component';
     ContactComponent,
     AboutPageComponent,
     ContactPageComponent,
-    CarouselComponent,
     MyCarouselComponent,
     ProductCartComponent,
     ProductPageComponent,

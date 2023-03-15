@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ProductsToBuyService {
   private productsList: Product[] = [];
-  private productsList$ = new BehaviorSubject<Product[]>([]);
+  private productsList$ = new BehaviorSubject<Product[]>(this.productsList);
 
   constructor() { }
 

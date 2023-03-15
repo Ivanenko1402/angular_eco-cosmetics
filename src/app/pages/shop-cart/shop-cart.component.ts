@@ -11,6 +11,8 @@ import { Product } from 'src/app/types/product';
 export class ShopCartComponent {
   bagItems$: Observable<Product[]> = this.store.getProducts();
   total:number = 0;
+  isShowMessage:boolean = false;
+  bagItems: Product[] = [];
 
   constructor(private store: ProductsToBuyService) {
     this.bagItems$.subscribe((bagItems: Product[]) => {
@@ -19,7 +21,14 @@ export class ShopCartComponent {
     });
   }
 
-  bagItems: Product[] = [];
+  showMessage(event: Event) {
+    event.preventDefault();
+    this.isShowMessage = true;
+
+    setTimeout(() => {
+      this.isShowMessage = false;
+    }, 2000)
+  }
 
   getSum() {
     let sum = 0;

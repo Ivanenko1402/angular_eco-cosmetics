@@ -42,7 +42,28 @@ export class ContactComponent {
   }
 
   changeValue = (event: Event) => {
-    
+    const target = event.target as HTMLInputElement;
+
+    switch (target.name) {
+      case 'name':
+        this.name = target.value.trim();
+      break;
+
+      case 'email':
+        this.email = target.value.trim();
+      break;
+
+      case 'tel':
+        this.tel = target.value.trim();
+      break;
+
+      case 'text':
+        this.text = target.value.trim();
+      break;
+
+      default:
+        break;
+    }
   }
 
   check = (event: Event) => {
@@ -54,21 +75,27 @@ export class ContactComponent {
           this.nameIsError = true;
         }
       break;
+
       case 'email':
         if (!target.value.trim()) {
           this.emailIsError = true;
         }
       break;
+
       case 'tel':
         if (!target.value.trim()) {
           this.telIsError = true;
         }
       break;
+
       case 'text':
         if (!target.value.trim()) {
           this.textIsError = true;
         }
       break;
+
+      default:
+        break;
     }
   }
 }
