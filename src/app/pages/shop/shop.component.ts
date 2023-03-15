@@ -65,27 +65,24 @@ export class ShopComponent {
     if (target instanceof HTMLInputElement) {
       this.currentPage = 1;
       this.inputValue = target.value.trim();
-      this.visibleProducts = this.productsFromServer.filter(p => p.name.toLowerCase().includes(this.inputValue.toLowerCase()));
       this.router.navigate([], {
         relativeTo: this.route,
         queryParams: { query: this.inputValue ? this.inputValue : null },
         queryParamsHandling: 'merge'
       });
-
-      return;
     } else if (target instanceof HTMLSelectElement) {
       this.currentPage = 1;
       this.selectValue = +target.value;
-      this.getNewStartVsEnd();
-      this.visibleProducts = this.productsFromServer.slice(this.start, this.end);
       this.router.navigate([], {
         relativeTo: this.route,
         queryParams: { count: this.selectValue !== 3 ? this.selectValue : null },
         queryParamsHandling: 'merge'
       });
-
-      return;
     }
+    
+    this.getNewStartVsEnd();
+    this.visibleProducts = this.productsFromServer.filter(p => p.name.toLowerCase().includes(this.inputValue.toLowerCase()));
+    this.visibleProducts = this.productsFromServer.slice(this.start, this.end);
   }
 
   getPagination(num: number): number[] {

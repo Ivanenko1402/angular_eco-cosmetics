@@ -1,16 +1,5 @@
 export const goodsFromServer = [
   {
-    "id": 1,
-    "image_link": ["https://cdn.no-toxic.com/q_auto:best,f_auto,fl_lossy,w_500,c_limit,dpr_1.0/v1666108968/products/FG1HCSMVHH16OZ/MV_HrShamp_primary02"],
-    "name": "Multi-Vitamin Healthy Hair Shampoo",
-    "price": "45.00",
-    "price_sign": "$",
-    "product_link": "https://www.100percentpure.com/collections/shampoo/products/multi-vitamin-healthy-hair-shampoo?variant=40056784322638",
-    "website_link": "https://www.100percentpure.com/",
-    "description": "Transform coarse, brittle locks into sumptuous silk. Our deeply nourishing and reparative shampoo is fortified with beneficial multivitamins to revitalize and mend dry, damaged hair.",
-    "category": "hair"
-  },
-  {
     "id": 2,
     "image_link": ["https://cdn.no-toxic.com/q_auto:best,f_auto,fl_lossy,w_500,c_limit,dpr_1.0/l_Badges:badges,w_0.3,y_-0.3,x_0.34,fl_relative,pg_name:2022-peta-vegan/v1649892126/products/1HCSYPG16OZ/1HCSYPG16OZ_Yuzu_Pomelo_Glossing_Shampoo_16oz_Primary"],
     "name": "Yuzu and Pomelo Glossing Shampoo",

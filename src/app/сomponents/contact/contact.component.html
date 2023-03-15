@@ -61,7 +61,11 @@
         (change)="changeValue($event)"
         value="{{text}}"
       >
-      <button class="contact_content_form_button">
+      <button
+        type="submit"
+        class="contact_content_form_button"
+        ((click))="submitForm($event)"
+      >
         send a message
       </button>
     </form>
