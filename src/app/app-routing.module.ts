@@ -12,10 +12,10 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: FirstPageComponent},
   {path: 'shop', component: ShopComponent},
+  {path: 'shop/:id', component: ProductPageComponent},
   {path: 'menu', component: MobileMenuComponent},
   {path: 'contact', component: ContactPageComponent},
   {path: 'about', component: AboutPageComponent},
-  {path: 'shop/:id', component: ProductPageComponent},
   {path: 'cart', component: ShopCartComponent},
 ];
 

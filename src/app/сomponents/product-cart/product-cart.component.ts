@@ -23,7 +23,7 @@ export class ProductCartComponent implements OnInit {
 
     this.isProductInCart = this.productStore.getProducts().pipe(
       map((bagList: Product[]) => bagList.some(p => p.id === this.product.id))
-    );    
+    );
   }
 
   getCount(bagList: Product[]): any {

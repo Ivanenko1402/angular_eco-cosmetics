@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { goodsFromServer } from 'src/api/goods';
 import { Product } from 'src/app/types/product';
@@ -11,36 +11,44 @@ import { map } from 'rxjs/operators';
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.scss']
 })
-export class ProductPageComponent {
-  product: Product;
+export class ProductPageComponent implements OnInit {
+  id: number = 2;
+  product: Product = goodsFromServer.find(p => p.id === this.id) as Product;
   targetImg: string = '';
-  bagList$: Observable<Product[]>;
-
+  bagList: Product[] = [];
+  bagList$: Observable<Product[]> = this.productStore.getProducts();
+  isProductInCart: Observable<boolean> | undefined;
+  
   constructor(
     private route: ActivatedRoute,
     private productStore: ProductsToBuyService,
-    ) {
-    this.product = goodsFromServer.find(
-      item => item.id === Number(this.route.snapshot.paramMap.get('id'))
-    ) as Product;
-    this.targetImg = this.product.image_link[0];
-    this.bagList$ = productStore.getProducts().pipe(
-      map(bagList => this.getCount(bagList)),
+  ) {}
+  
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.id = Number(params.get('id'));
+      this.product = goodsFromServer.find(
+        item => item.id === this.id
+      ) as Product;
+      this.targetImg = this.product.image_link[0];
+    });
+
+    this.bagList$ = this.productStore.getProducts();
+
+    this.isProductInCart = this.productStore.getProducts().pipe(
+      map((bagList: Product[]) => bagList.some(p => p.id === this.product.id))
     );
   }
 
   addCart(product: Product) {
     this.productStore.addToList(product);
-    this.bagList$ = this.productStore.getProducts().pipe(
-      map(bagList => this.getCount(bagList)),
-    );
-  }
-  getCount(bagList: Product[]): any {
-    throw new Error('Method not implemented.');
+    this.bagList$ = this.productStore.getProducts();
   }
 
-  includesProduct(product: Product) {
-    return this.bagList$.toPromise().then(bagList => bagList?.some(p => p.id === product.id));
+  includesProduct(product: Product): Observable<boolean> {
+    return this.productStore.getProducts().pipe(
+      map(products => products.some(p => p.id === product.id))
+    );
   }
 
   changeImg(str: string, num: number) {
