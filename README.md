@@ -1,3 +1,14 @@
-# AngularEcoCosmetics
+# Online shop with eco-cosmetics [DEMO LINK](https://ivanenko1402.github.io/angular_eco-cosmetics)
 
-[DEMO LINK](https://ivanenko1402.github.io/angular_eco-cosmetics)
+Цей проект є прикладом додатка для онлайн магазину телефонів, розробленого з використанням Angular 2+.
+Додаток включає можливість перегляду та фільтрації каталогу продуктів, додавання товарів до кошика та оформлення замовлення.
+
+## Використані технології
+### Для створення цього додатку були використані наступні технології:
+
+* Angular
+* Firebase
+* HTML
+* SCSS
+* Bootstrap
+* RxJS
